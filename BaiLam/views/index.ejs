@@ -3,13 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale=1.0">
-    <title>Anh em siuuu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="../css/bootstrap-grid.css">
 </head>
-
-</html>
 
 <body>
     <div class="container">
@@ -46,10 +44,12 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Mã sản phẩm</th>
-                                <th>Tên sản phẩm</th>
-                                <th>Số lượng</th>
-                                <th>Hình ảnh</th>
+                                <th>ISBN</th>
+                                <th>Tên bài</th>
+                                <th>Tác Giả</th>
+                                <th>Trang</th>
+                                <th>Năm Xuát Bản</th>
+                                <th>Ảnh</th>
                                 <th>Chọn</th>
                             </tr>
                         </thead>
@@ -57,18 +57,25 @@
                             <% for(let i=0; i< data.length; i++){ %>
                                 <tr>
                                     <td>
-                                        <%= data[i].maSanPham %>
+                                        <%= data[i].ISBN %>
                                     </td>
                                     <td>
-                                        <%= data[i].tenSanPham %>
+                                        <%= data[i].tenbai %>
                                     </td>
                                     <td>
-                                        <%= data[i].soLuong %>
+                                        <%= data[i].tacgia %>
                                     </td>
-                                    <td><img src="<%= data[i].image %>" alt="avt_<%= data[i].maSanPham %>" width="48" height="48" /></td>
                                     <td>
-                                        <input type="checkbox" name="<%= data[i].maSanPham %>" id="<%= data[i].maSanPham %>" />
+                                        <%= data[i].trang %>
                                     </td>
+                                    <td>
+                                        <%= data[i].namxb %>
+                                    </td>
+                                    <td>
+                                        <img src="<%= data[i].img %>" alt="" width="100" height="100" />
+                                        <td>
+                                            <input type="checkbox" name="<%= data[i].ISBN %>" id="<%= data[i].ISBN %>" />
+                                        </td>
                                 </tr>
                                 <% } %>
                         </tbody>
@@ -79,3 +86,5 @@
         </div>
     </div>
 </body>
+
+</html>
