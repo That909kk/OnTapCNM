@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Anh em siuuu</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../css/bootstrap-grid.css">
+</head>
+
+</html>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="content">
+                    <form action="/save" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="maSanPham" id="maSanPham" placeholder="Nhập mã sản phẩm" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="tenSanPham" id="tenSanPham" placeholder="Nhập tên sản phẩm" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="soLuong" id="soLuong" placeholder="Nhập số lượng" />
+                        </div>
+                        <div class="form-group">
+                            <input type="file" class="form-control-file" name="image" id="image" accept="image/*" />
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Thêm" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="/delete" method="post" enctype="multipart/form-data">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Mã sản phẩm</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Hình ảnh</th>
+                            <th>Chọn</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% for(let i=0; i< data.length; i++){ %>
+                            <tr>
+                                <td><%= data[i].maSanPham %></td>
+                                <td><%= data[i].tenSanPham %></td>
+                                <td><%= data[i].soLuong %></td>
+                                <td><img src="<%= data[i].image %>" alt="avt_<%= data[i].maSanPham %>" width="48" height="48" /></td>
+                                <td>
+                                    <input type="checkbox" name="<%= data[i].maSanPham %>" id="<%= data[i].maSanPham %>" />
+                                </td>
+                            </tr>
+                        <% } %>
+                        </tbody>
+                    </table>
+                    <input type="submit" class="btn btn-danger" value="Xoá" />
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
